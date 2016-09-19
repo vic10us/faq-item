@@ -19,6 +19,9 @@
       .question-item {
         @apply(--faq-question-item);
       }
+      .question {
+        white-space: normal;
+      }
       paper-item.question-item {
         background-color: var(--question-background-color, --question-background-color0);
       }
@@ -46,7 +49,7 @@
     <paper-item on-click="toggleAnswer" role="listitem" class="question-item">
       <iron-icon icon="mdi:help-circle"></iron-icon>
       <paper-item-body two-line>
-          <div>[[question]]</div>
+          <div class="question">[[question]]</div>
           <div secondary>[[category]], [[formatHuman(lastModified)]]</div>
       </paper-item-body>
     </paper-item>
