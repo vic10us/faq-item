@@ -17,6 +17,7 @@
         --faq-border-color0: #34b6e4;
       }
       .question-item {
+        
         @apply(--faq-question-item);
       }
       .question {
@@ -53,7 +54,8 @@
     </paper-item>
     <iron-collapse id="answerContainer" tabindex="0" opened="{{expanded}}">
       <div class="answer-item">
-        <div class="content">[[answer]]</div>
+        <content id="content"></content>
+        {{answer}}
       <div>
     </iron-collapse>
     </div>
@@ -71,7 +73,7 @@
         },
         answer: {
           type: String,
-          value: ''
+          value: null
         },
         expanded: {
           type: Boolean,
@@ -85,6 +87,14 @@
         category: {
           type: String,
           value: 'Unknown'
+        }
+      },
+      ready: function() {
+        var contentChildNodes = this.getContentChildNodes();
+        if (contentChildNodes.length > 0) {
+           var text = contentChildNodes[0];
+           console.log(text.textContent);
+           if (!!!this.answer) this.answer = text.textContent;
         }
       },
       faqContainerClass: function(expanded) {
