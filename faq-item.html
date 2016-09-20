@@ -90,12 +90,7 @@
         }
       },
       ready: function() {
-        var contentChildNodes = this.getContentChildNodes();
-        if (contentChildNodes.length > 0) {
-           var text = contentChildNodes[0];
-           console.log(text.textContent);
-           if (!!!this.answer) this.answer = text.textContent;
-        }
+
       },
       faqContainerClass: function(expanded) {
         return (!!expanded) ? 'expanded' : '';
